@@ -123,5 +123,10 @@
       }
     }
   },
-  "defaultProject": "movie-navigator"
+  "defaultProject": "movie-navigator",
+  "schematics": {
+    "@schematics/angular:component": {
+      "styleext": "scss"
+    }
+  }
 }
