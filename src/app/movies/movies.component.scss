@@ -10,12 +10,39 @@
   justify-content: space-evenly; /* 4 */
   grid-auto-rows: minmax(100px, 150px);
   padding: 0;
+
+  li {
+    display: block;
+    list-style: none;
+    background-color: lightblue;
+    border-radius: 10px;
+    overflow: hidden;
+  }
 }
 
-.movies > li {
-  display: block;
-  list-style: none;
-  background-color: lightblue;
-  border-radius: 10px;
-  overflow: hidden;
+.adding-card {
+  padding: 10px;
+  height: 10em;
+  position: relative;
+  .add {
+    margin: 0;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin-right: -50%;
+    transform: translate(-50%, -50%);
+  }
+  svg {
+    height: 100px;
+    width: 100px;
+  }
+  circle {
+    fill: transparent;
+    stroke: black;
+    stroke-width: 3;
+  }
+
+  .dashed {
+    stroke-dasharray: 8, 8.5;
+  }
 }

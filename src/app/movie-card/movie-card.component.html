@@ -1,1 +1,9 @@
-<p *ngIf="movie">{{ movie.title }}</p>
+<div *ngIf="movie" class="movie-card">
+  <div class="info">
+    <p class="title">{{ movie.title }}</p>
+    <p>{{ movie.genre }}</p>
+    <p>{{ movie.country }}</p>
+    <p>{{ movie.duration }}</p>
+  </div>
+  <div class="score">5</div>
+</div>

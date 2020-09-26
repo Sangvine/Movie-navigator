@@ -1,3 +1,14 @@
-p {
+.movie-card {
   margin: 10px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.title {
+  font-size: 1.5em;
+}
+
+.score {
+  padding: 0.2em;
+  font-size: 3em;
 }
