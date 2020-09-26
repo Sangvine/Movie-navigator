@@ -1,9 +1,9 @@
 <ul class="movies">
-  <li>
+  <li *ngIf="isSearching">
     <div class="adding-card">
       <div class="add">
         <svg viewBox="0 0 120 120">
-          <circle cx="55" cy="55" r="50" class="dashed" />
+          <circle cx="55" cy="55" r="50" />
           <foreignObject x="5" y="5" height="100px" width="100px">
             <div class="material-icons add" style="font-size: 60px">add</div>
           </foreignObject>
@@ -11,7 +11,7 @@
       </div>
     </div>
   </li>
-  <li *ngFor="let movie of movies">
+  <li *ngFor="let movie of movies$ | async">
     <app-movie-card [movie]="movie"></app-movie-card>
   </li>
 </ul>

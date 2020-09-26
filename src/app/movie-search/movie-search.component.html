@@ -1,19 +1,12 @@
-<form class="search-form">
-  <mat-form-field class="example-full-width">
+<div class="search-form">
+  <mat-form-field>
     <input
       type="text"
       matInput
+      #searchInput
       placeholder="Поиск фильма"
-      [formControl]="myControl"
-      [matAutocomplete]="false"
+      autocomplete="off"
+      (input)="search(searchInput.value)"
     />
-    <!-- <input
-      type="text"
-      placeholder="Поиск фильма"
-      aria-label="Number"
-      matInput
-      
-      
-    /> -->
   </mat-form-field>
-</form>
+</div>

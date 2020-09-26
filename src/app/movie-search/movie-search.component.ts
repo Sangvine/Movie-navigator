@@ -1,6 +1,7 @@
+import { SharedService } from './../shared.service';
 import { Component, OnInit } from '@angular/core';
 import { FormControl } from '@angular/forms';
-import { Observable } from 'rxjs';
+import { Observable, Subject } from 'rxjs';
 import { map, startWith } from 'rxjs/operators';
 import { debounceTime, distinctUntilChanged, switchMap } from 'rxjs/operators';
 
@@ -10,25 +11,16 @@ import { debounceTime, distinctUntilChanged, switchMap } from 'rxjs/operators';
   styleUrls: ['./movie-search.component.scss'],
 })
 export class MovieSearchComponent implements OnInit {
-  myControl = new FormControl();
-  options: string[] = ['One', 'Two', 'Three'];
-  filteredOptions: Observable<string[]>;
+  private searchTerms = new Subject<string>();
 
+  search(term: string) {
+    this.searchTerms.next(term);
+  }
   ngOnInit() {
-    this.filteredOptions = this.myControl.valueChanges.pipe(
-      debounceTime(200),
-
-      startWith(''),
-      map((value) => this._filter(value))
-    );
+    this.searchTerms
+      .pipe(debounceTime(300), distinctUntilChanged())
+      .subscribe((input) => this._sharedService.messageSource.next(input));
   }
 
-  private _filter(value: string): string[] {
-    const filterValue = value.toLowerCase();
-    if (!filterValue.trim()) return [];
-
-    return this.options.filter(
-      (option) => option.toLowerCase().indexOf(filterValue) === 0
-    );
-  }
+  constructor(private _sharedService: SharedService) {}
 }
