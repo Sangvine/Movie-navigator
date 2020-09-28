@@ -18,7 +18,7 @@ export class MovieSearchComponent implements OnInit {
   }
   ngOnInit() {
     this.searchTerms
-      .pipe(debounceTime(300), distinctUntilChanged())
+      .pipe(debounceTime(200), distinctUntilChanged())
       .subscribe((input) => this._sharedService.messageSource.next(input));
   }
 

@@ -16,6 +16,11 @@ import { MovieCardComponent } from './movie-card/movie-card.component';
 import { HttpClientInMemoryWebApiModule } from 'angular-in-memory-web-api';
 import { HttpClientModule } from '@angular/common/http';
 import { InMemoryDataService } from './in-memory-data.service';
+import { MovieAddCardComponent } from './movie-add-card/movie-add-card.component';
+import { ModalWindowComponent } from './modal-window/modal-window.component';
+import { MatDialogRef, MatDialogModule } from '@angular/material/dialog';
+import { AddFormComponent } from './add-form/add-form.component';
+import { MatButtonModule } from '@angular/material/button';
 
 @NgModule({
   declarations: [
@@ -23,6 +28,9 @@ import { InMemoryDataService } from './in-memory-data.service';
     MovieSearchComponent,
     MoviesComponent,
     MovieCardComponent,
+    MovieAddCardComponent,
+    ModalWindowComponent,
+    AddFormComponent,
   ],
   imports: [
     BrowserModule,
@@ -39,8 +47,15 @@ import { InMemoryDataService } from './in-memory-data.service';
     HttpClientInMemoryWebApiModule.forRoot(InMemoryDataService, {
       dataEncapsulation: false,
     }),
+    MatDialogModule,
+    MatButtonModule,
   ],
-  providers: [],
+  providers: [
+    {
+      provide: MatDialogRef,
+      useValue: {},
+    },
+  ],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

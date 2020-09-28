@@ -21,27 +21,3 @@
     grid-template-columns: repeat(auto-fill, 100%);
   }
 }
-
-.adding-card {
-  padding: 10px;
-  height: 10em;
-  position: relative;
-  .add {
-    margin: 0;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    margin-right: -50%;
-    transform: translate(-50%, -50%);
-  }
-  svg {
-    height: 100px;
-    width: 100px;
-  }
-  circle {
-    fill: transparent;
-    stroke: black;
-    stroke-width: 3;
-    stroke-dasharray: 8, 8.5;
-  }
-}

@@ -1,17 +1,8 @@
 <ul class="movies">
   <li *ngIf="isSearching">
-    <div class="adding-card">
-      <div class="add">
-        <svg viewBox="0 0 120 120">
-          <circle cx="55" cy="55" r="50" />
-          <foreignObject x="5" y="5" height="100px" width="100px">
-            <div class="material-icons add" style="font-size: 60px">add</div>
-          </foreignObject>
-        </svg>
-      </div>
-    </div>
+    <app-movie-add-card></app-movie-add-card>
   </li>
-  <li *ngFor="let movie of movies$ | async">
+  <li *ngFor="let movie of movies$ | async" tabindex="0">
     <app-movie-card [movie]="movie"></app-movie-card>
   </li>
 </ul>
