@@ -1,0 +1,22 @@
+.movie-detail {
+  display: flex;
+  justify-content: space-between;
+}
+
+.detail-title {
+  font-size: 1.5em;
+}
+
+.detail-rating {
+  padding: 0.2em;
+  font-size: 3em;
+}
+
+.buttons {
+  display: flex;
+  justify-content: space-between;
+
+  button {
+    margin: 5px;
+  }
+}

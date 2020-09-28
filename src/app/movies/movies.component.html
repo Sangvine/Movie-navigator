@@ -3,6 +3,10 @@
     <app-movie-add-card></app-movie-add-card>
   </li>
   <li *ngFor="let movie of movies$ | async" tabindex="0">
-    <app-movie-card [movie]="movie"></app-movie-card>
+    <app-movie-card
+      [movie]="movie"
+      (click)="movieDetail(movie)"
+      (keyup.enter)="movieDetail(movie)"
+    ></app-movie-card>
   </li>
 </ul>

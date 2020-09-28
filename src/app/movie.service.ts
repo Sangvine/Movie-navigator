@@ -41,5 +41,12 @@ export class MovieService {
     return this.http.get<Movie[]>(this.moviesUrl);
   }
 
+  getMovie(id: Number): Observable<Movie> {
+    const url = `${this.moviesUrl}/${id}`;
+    return this.http
+      .get<Movie>(url)
+      .pipe(catchError(this.handleError<Movie>('getMovie')));
+  }
+
   constructor(private http: HttpClient) {}
 }

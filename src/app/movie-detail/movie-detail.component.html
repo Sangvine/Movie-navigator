@@ -1,0 +1,27 @@
+<div *ngIf="movie" class="movie-detail">
+  <div class="detail-info">
+    <p>
+      Жанр: <span>{{ movie.genre }}</span>
+    </p>
+    <p>
+      Страна: <span>{{ movie.country }}</span>
+    </p>
+    <p>
+      Длительность фильма: <span>{{ movie.duration }}</span>
+    </p>
+    <h3>Отзыв на фильм:</h3>
+    <p>{{ movie.review }}</p>
+  </div>
+  <div class="detail-rating">{{ movie.rating }}</div>
+</div>
+<div class="buttons">
+  <button mat-button [mat-dialog-close]="" cdkFocusInitial>Закрыть</button>
+  <div>
+    <button (click)="editMovie()" mat-button class="icon-button" align="end">
+      <mat-icon>edit</mat-icon>
+    </button>
+    <button mat-button class="icon-button">
+      <mat-icon>delete</mat-icon>
+    </button>
+  </div>
+</div>

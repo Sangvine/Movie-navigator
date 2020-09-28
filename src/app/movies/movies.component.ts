@@ -1,9 +1,12 @@
+import { Location } from '@angular/common';
+import { Router } from '@angular/router';
+import { MatDialog } from '@angular/material/dialog';
+import { ModalWindowComponent } from './../modal-window/modal-window.component';
 import { MovieService } from './../movie.service';
 import { switchMap } from 'rxjs/operators';
 import { SharedService } from './../shared.service';
 import { Movie } from './../models/movie';
 import { Component, OnInit } from '@angular/core';
-import { MOVIES } from '../models/mosk-movies';
 import { Subject, Observable, BehaviorSubject } from 'rxjs';
 
 @Component({
@@ -20,6 +23,25 @@ export class MoviesComponent implements OnInit {
     this.searchTerms.next(term);
   }
 
+  movieDetail(movie: Movie) {
+    const dialogRef = this.dialog.open(ModalWindowComponent, {
+      data: {
+        type: 'detail',
+        title: movie.title,
+        movieId: movie.id,
+      },
+      width: '30%',
+      minWidth: '200px',
+    });
+
+    dialogRef.afterClosed().subscribe((result) => {
+      console.log(`Dialog result: ${result}`);
+      this.location.back();
+    });
+
+    this.router.navigate([`detail/${movie.id}`]);
+  }
+
   ngOnInit(): void {
     this.movies$ = this.searchTerms.pipe(
       switchMap((term: string) => this.movieService.searchMovies(term))
@@ -31,7 +53,10 @@ export class MoviesComponent implements OnInit {
   }
 
   constructor(
+    public dialog: MatDialog,
     private _sharedService: SharedService,
-    private movieService: MovieService
+    private movieService: MovieService,
+    public router: Router,
+    private location: Location
   ) {}
 }
