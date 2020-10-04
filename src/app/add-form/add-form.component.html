@@ -1,8 +1,18 @@
-<form class="form" #form [formGroup]="movieForm">
+<form
+  class="form"
+  #form
+  [formGroup]="movieForm"
+  (submit)="onSubmit(movieForm.value)"
+>
   <p>
     <mat-form-field appearance="standard">
       <mat-label>Название</mat-label>
-      <input matInput placeholder="Матрица" formControlName="title" />
+      <input
+        matInput
+        placeholder="Матрица"
+        formControlName="title"
+        matInputAutofocus
+      />
     </mat-form-field>
   </p>
   <p>
@@ -36,29 +46,18 @@
         matInput
         placeholder="Краткое ревью фильма"
         formControlName="review"
+        cdkTextareaAutosize
+        cdkAutosizeMaxRows="8"
       ></textarea>
     </mat-form-field>
   </p>
-  <div class="buttons">
-    <button mat-button *ngIf="!id" (click)="addMovie()">Добавить</button>
-    <button mat-button *ngIf="id" (click)="updateMovie()">Сохранить</button>
-    <button
-      mat-button
-      *ngIf="id"
-      cdkFocusInitial
-      type="text"
-      (click)="goBack()"
-    >
-      Отменить
-    </button>
-    <button
-      mat-button
-      *ngIf="!id"
-      [mat-dialog-close]=""
-      cdkFocusInitial
-      type="text"
-    >
-      Закрыть
-    </button>
+
+  <div *ngIf="id" class="buttons">
+    <button mat-button (click)="updateMovie()" type="submit">Сохранить</button>
+    <button mat-button type="text" (click)="goBack()">Отменить</button>
+  </div>
+  <div *ngIf="!id" class="buttons">
+    <button mat-button (click)="addMovie()" type="submit">Добавить</button>
+    <button mat-button [mat-dialog-close]="" type="text">Закрыть</button>
   </div>
 </form>

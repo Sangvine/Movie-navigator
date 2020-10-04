@@ -2,7 +2,7 @@ import { Location } from '@angular/common';
 import { Router } from '@angular/router';
 import { AddFormComponent } from './../add-form/add-form.component';
 import { ModalWindowComponent } from './../modal-window/modal-window.component';
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 
 @Component({
@@ -11,6 +11,7 @@ import { MatDialog } from '@angular/material/dialog';
   styleUrls: ['./movie-add-card.component.scss'],
 })
 export class MovieAddCardComponent implements OnInit {
+  @Output() onAdd = new EventEmitter();
   constructor(
     public dialog: MatDialog,
     public router: Router,
@@ -30,7 +31,7 @@ export class MovieAddCardComponent implements OnInit {
     this.router.navigate(['add']);
 
     dialogRef.afterClosed().subscribe((result) => {
-      console.log(`Dialog result: ${result}`);
+      this.onAdd.emit();
       this.location.back();
     });
   }

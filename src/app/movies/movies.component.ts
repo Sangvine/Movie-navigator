@@ -19,6 +19,10 @@ export class MoviesComponent implements OnInit {
   private searchTerms = new BehaviorSubject<string>('');
   isSearching: boolean;
 
+  handleChange() {
+    this.searchTerms.next('');
+  }
+
   searchMovies(term: string) {
     this.searchTerms.next(term);
   }

@@ -1,4 +1,4 @@
-import { MatDialogRef } from '@angular/material/dialog';
+import { MatDialogRef, MatDialog } from '@angular/material/dialog';
 import { Location } from '@angular/common';
 import { MovieService } from './../movie.service';
 import { Movie } from './../models/movie';
@@ -25,7 +25,8 @@ export class AddFormComponent implements OnInit {
     private router: Router,
     private route: ActivatedRoute,
     private movieService: MovieService,
-    private location: Location
+    private location: Location,
+    public dialog: MatDialog
   ) {}
 
   goBack() {
@@ -34,8 +35,27 @@ export class AddFormComponent implements OnInit {
 
   addMovie() {}
 
+  updateMovie() {}
+
+  onSubmit(movieFormValue) {
+    const controls = this.movieForm.controls;
+    if (this.movieForm.invalid) {
+      Object.keys(controls).forEach((controlName) =>
+        controls[controlName].markAsTouched()
+      );
+      return;
+    }
+
+    let movie: Movie = movieFormValue;
+    if (this.id) this.movieService.updateMovie(movie).subscribe();
+    else this.movieService.addMovie(movie).subscribe();
+
+    this.dialog.closeAll();
+  }
+
   ngOnInit(): void {
     this.movieForm = new FormGroup({
+      id: new FormControl(null),
       title: new FormControl(null, [Validators.required]),
       genre: new FormControl(null),
       country: new FormControl(null),
@@ -47,6 +67,7 @@ export class AddFormComponent implements OnInit {
     if (this.id) {
       this.movieService.getMovie(+this.id).subscribe((movie) =>
         this.movieForm.patchValue({
+          id: movie.id,
           title: movie.title,
           genre: movie.genre,
           country: movie.country,

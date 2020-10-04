@@ -1,3 +1,4 @@
+import { Movie } from './models/movie';
 import { Injectable } from '@angular/core';
 import { InMemoryDbService } from 'angular-in-memory-web-api';
 
@@ -64,6 +65,11 @@ export class InMemoryDataService implements InMemoryDbService {
       },
     ];
     return { movies };
+  }
+  genId(movies: Movie[]): number {
+    return movies.length > 0
+      ? Math.max(...movies.map((hero) => hero.id)) + 1
+      : 11;
   }
 
   constructor() {}
