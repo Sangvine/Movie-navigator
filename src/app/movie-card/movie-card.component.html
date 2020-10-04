@@ -3,7 +3,14 @@
     <p class="title">{{ movie.title }}</p>
     <p>{{ movie.genre }}</p>
     <p>{{ movie.country }}</p>
-    <p>{{ movie.duration }}</p>
+    <p>{{ movie.duration | movieDuration }}</p>
   </div>
-  <div class="rating">{{ movie.rating }}</div>
+  <div
+    class="rating"
+    [style.color]="
+      movie.rating > 3 ? 'green' : movie.rating === 3 ? 'yellow' : 'red'
+    "
+  >
+    {{ movie.rating }}
+  </div>
 </div>

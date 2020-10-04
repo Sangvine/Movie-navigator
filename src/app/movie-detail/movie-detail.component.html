@@ -7,7 +7,7 @@
       Страна: <span>{{ movie.country }}</span>
     </p>
     <p>
-      Длительность фильма: <span>{{ movie.duration }}</span>
+      Длительность фильма: <span>{{ movie.duration | movieDuration }}</span>
     </p>
     <h3>Отзыв на фильм:</h3>
     <p>{{ movie.review }}</p>

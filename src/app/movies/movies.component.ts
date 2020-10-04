@@ -40,7 +40,7 @@ export class MoviesComponent implements OnInit {
 
     dialogRef.afterClosed().subscribe((result) => {
       this.searchTerms.next('');
-      this.location.back();
+      this.router.navigate(['']);
     });
 
     this.router.navigate([`detail/${movie.id}`]);
