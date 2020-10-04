@@ -28,22 +28,20 @@ export class MoviesComponent implements OnInit {
   }
 
   movieDetail(movie: Movie) {
-    const dialogRef = this.dialog.open(ModalWindowComponent, {
-      data: {
-        type: 'detail',
-        title: movie.title,
-        movieId: movie.id,
-      },
-      width: '30%',
-      minWidth: '200px',
-    });
-
-    dialogRef.afterClosed().subscribe((result) => {
-      this.searchTerms.next('');
-      this.location.back();
-    });
-
-    this.router.navigate([`detail/${movie.id}`]);
+    // const dialogRef = this.dialog.open(ModalWindowComponent, {
+    //   data: {
+    //     type: 'detail',
+    //     title: movie.title,
+    //     movieId: movie.id,
+    //   },
+    //   width: '30%',
+    //   minWidth: '200px',
+    // });
+    // dialogRef.afterClosed().subscribe((result) => {
+    //   this.searchTerms.next('');
+    //   //this.location.back();
+    // });
+    //
   }
 
   ngOnInit(): void {

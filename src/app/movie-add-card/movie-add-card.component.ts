@@ -1,5 +1,5 @@
 import { Location } from '@angular/common';
-import { Router } from '@angular/router';
+import { Router, ActivatedRoute } from '@angular/router';
 import { AddFormComponent } from './../add-form/add-form.component';
 import { ModalWindowComponent } from './../modal-window/modal-window.component';
 import { Component, OnInit, Output, EventEmitter } from '@angular/core';
@@ -15,7 +15,8 @@ export class MovieAddCardComponent implements OnInit {
   constructor(
     public dialog: MatDialog,
     public router: Router,
-    private location: Location
+    private location: Location,
+    private route: ActivatedRoute
   ) {}
 
   addCard() {
@@ -28,11 +29,11 @@ export class MovieAddCardComponent implements OnInit {
       width: '30%',
       minWidth: '200px',
     });
-    this.router.navigate(['add']);
+    //this.router.navigate(['add']);
 
     dialogRef.afterClosed().subscribe((result) => {
       this.onAdd.emit();
-      this.location.back();
+      //this.router.navigate(['home'], { relativeTo: this.route });
     });
   }
 

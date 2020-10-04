@@ -23,6 +23,7 @@ import { AddFormComponent } from './add-form/add-form.component';
 import { MatButtonModule } from '@angular/material/button';
 import { MovieDetailComponent } from './movie-detail/movie-detail.component';
 import { MatIconModule } from '@angular/material/icon';
+import { DialogEntryComponent } from './dialog-entry/dialog-entry.component';
 
 @NgModule({
   declarations: [
@@ -34,6 +35,7 @@ import { MatIconModule } from '@angular/material/icon';
     ModalWindowComponent,
     AddFormComponent,
     MovieDetailComponent,
+    DialogEntryComponent,
   ],
   imports: [
     BrowserModule,
