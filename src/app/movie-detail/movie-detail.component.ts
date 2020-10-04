@@ -1,6 +1,6 @@
 import { MovieService } from './../movie.service';
 import { Movie } from './../models/movie';
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, ViewChild } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
@@ -18,18 +18,18 @@ export class MovieDetailComponent implements OnInit {
     private router: Router
   ) {}
 
-  getMovie(): void {
-    this.movieSevice
-      .getMovie(this.id)
-      .subscribe((movie) => (this.movie = movie));
-  }
-
   editMovie(): void {
     this.router.navigate([`edit/${this.id}`]);
   }
 
+  deleteMovie(movie): void {
+    this.movieSevice.deleteMovie(movie).subscribe();
+  }
+
   ngOnInit(): void {
     this.id = +this.route.snapshot.paramMap.get('id');
-    this.getMovie();
+    this.movieSevice
+      .getMovie(this.id)
+      .subscribe((movie) => (this.movie = movie));
   }
 }

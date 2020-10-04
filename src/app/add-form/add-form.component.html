@@ -1,42 +1,64 @@
-<div class="form">
+<form class="form" #form [formGroup]="movieForm">
   <p>
     <mat-form-field appearance="standard">
       <mat-label>Название</mat-label>
-      <input matInput placeholder="Матрица" />
+      <input matInput placeholder="Матрица" formControlName="title" />
     </mat-form-field>
   </p>
   <p>
     <mat-form-field appearance="standard">
       <mat-label>Жанр</mat-label>
-      <input matInput placeholder="Боевик" />
+      <input matInput placeholder="Боевик" formControlName="genre" />
     </mat-form-field>
   </p>
   <p>
     <mat-form-field appearance="standard">
       <mat-label>Страна</mat-label>
-      <input matInput placeholder="США" />
+      <input matInput placeholder="США" formControlName="country" />
     </mat-form-field>
   </p>
   <p>
     <mat-form-field appearance="standard">
       <mat-label>Длительность</mat-label>
-      <input matInput placeholder="136" />
+      <input matInput placeholder="136" formControlName="duration" />
     </mat-form-field>
   </p>
   <p>
     <mat-form-field appearance="standard">
       <mat-label>Оценка</mat-label>
-      <input matInput placeholder="5" />
+      <input matInput placeholder="5" formControlName="rating" />
     </mat-form-field>
   </p>
   <p>
     <mat-form-field appearance="standard">
       <mat-label>Отзыв</mat-label>
-      <textarea matInput placeholder="Краткое ревью фильма"></textarea>
+      <textarea
+        matInput
+        placeholder="Краткое ревью фильма"
+        formControlName="review"
+      ></textarea>
     </mat-form-field>
   </p>
   <div class="buttons">
-    <button mat-button [mat-dialog-close]="" cdkFocusInitial>Закрыть</button>
-    <button mat-button>Сохранить</button>
+    <button mat-button *ngIf="!id" (click)="addMovie()">Добавить</button>
+    <button mat-button *ngIf="id" (click)="updateMovie()">Сохранить</button>
+    <button
+      mat-button
+      *ngIf="id"
+      cdkFocusInitial
+      type="text"
+      (click)="goBack()"
+    >
+      Отменить
+    </button>
+    <button
+      mat-button
+      *ngIf="!id"
+      [mat-dialog-close]=""
+      cdkFocusInitial
+      type="text"
+    >
+      Закрыть
+    </button>
   </div>
-</div>
+</form>

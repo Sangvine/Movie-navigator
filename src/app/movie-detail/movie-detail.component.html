@@ -15,12 +15,19 @@
   <div class="detail-rating">{{ movie.rating }}</div>
 </div>
 <div class="buttons">
-  <button mat-button [mat-dialog-close]="" cdkFocusInitial>Закрыть</button>
+  <button mat-button [mat-dialog-close]="" cdkFocusInitial type="text">
+    Закрыть
+  </button>
   <div>
     <button (click)="editMovie()" mat-button class="icon-button" align="end">
       <mat-icon>edit</mat-icon>
     </button>
-    <button mat-button class="icon-button">
+    <button
+      (click)="deleteMovie(movie)"
+      [mat-dialog-close]=""
+      mat-button
+      class="icon-button"
+    >
       <mat-icon>delete</mat-icon>
     </button>
   </div>

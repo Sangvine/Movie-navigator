@@ -21,7 +21,6 @@ import { ModalWindowComponent } from './modal-window/modal-window.component';
 import { MatDialogRef, MatDialogModule } from '@angular/material/dialog';
 import { AddFormComponent } from './add-form/add-form.component';
 import { MatButtonModule } from '@angular/material/button';
-import { EditFormComponent } from './edit-form/edit-form.component';
 import { MovieDetailComponent } from './movie-detail/movie-detail.component';
 import { MatIconModule } from '@angular/material/icon';
 
@@ -34,7 +33,6 @@ import { MatIconModule } from '@angular/material/icon';
     MovieAddCardComponent,
     ModalWindowComponent,
     AddFormComponent,
-    EditFormComponent,
     MovieDetailComponent,
   ],
   imports: [

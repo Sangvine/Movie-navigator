@@ -35,7 +35,7 @@ export class MoviesComponent implements OnInit {
     });
 
     dialogRef.afterClosed().subscribe((result) => {
-      console.log(`Dialog result: ${result}`);
+      this.searchTerms.next('');
       this.location.back();
     });
 
