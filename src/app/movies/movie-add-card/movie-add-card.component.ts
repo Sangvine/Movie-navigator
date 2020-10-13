@@ -1,6 +1,6 @@
 import { Location } from '@angular/common';
 import { Router } from '@angular/router';
-import { AddFormComponent } from './../add-form/add-form.component';
+import { MovieFormComponent } from './../movie-form/movie-form.component';
 import { ModalWindowComponent } from './../modal-window/modal-window.component';
 import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
@@ -23,7 +23,7 @@ export class MovieAddCardComponent implements OnInit {
       data: {
         title: 'Добавить фильм',
         type: 'add',
-        template: AddFormComponent,
+        template: MovieFormComponent,
       },
       width: '30%',
       minWidth: '200px',

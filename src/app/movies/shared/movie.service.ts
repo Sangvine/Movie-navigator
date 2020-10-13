@@ -1,9 +1,8 @@
 import { Observable, of } from 'rxjs';
 import { Injectable } from '@angular/core';
-import { Movie } from './models/movie';
+import { Movie } from './movie';
 import { HttpHeaders, HttpClient } from '@angular/common/http';
-import { tap, catchError } from 'rxjs/operators';
-import { stringify } from 'querystring';
+import { catchError } from 'rxjs/operators';
 
 @Injectable({
   providedIn: 'root',

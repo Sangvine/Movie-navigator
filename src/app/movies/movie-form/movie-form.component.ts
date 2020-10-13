@@ -1,22 +1,16 @@
-import { MatDialogRef, MatDialog } from '@angular/material/dialog';
-import { Location } from '@angular/common';
-import { MovieService } from './../movie.service';
-import { Movie } from './../models/movie';
+import { MatDialog } from '@angular/material/dialog';
+import { MovieService } from '../shared/movie.service';
+import { Movie } from '../shared/movie';
 import { Router, ActivatedRoute } from '@angular/router';
-import { Component, OnInit, ViewChild } from '@angular/core';
-import {
-  FormGroup,
-  FormBuilder,
-  FormControl,
-  Validators,
-} from '@angular/forms';
+import { Component, OnInit } from '@angular/core';
+import { FormGroup, FormControl, Validators } from '@angular/forms';
 
 @Component({
-  selector: 'app-add-form',
-  templateUrl: './add-form.component.html',
-  styleUrls: ['./add-form.component.scss'],
+  selector: 'app-movie-form',
+  templateUrl: './movie-form.component.html',
+  styleUrls: ['./movie-form.component.scss'],
 })
-export class AddFormComponent implements OnInit {
+export class MovieFormComponent implements OnInit {
   movie: Movie;
   id: String;
   movieForm: FormGroup;
@@ -25,7 +19,6 @@ export class AddFormComponent implements OnInit {
     private router: Router,
     private route: ActivatedRoute,
     private movieService: MovieService,
-    private location: Location,
     public dialog: MatDialog
   ) {}
 

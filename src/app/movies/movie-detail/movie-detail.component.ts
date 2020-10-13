@@ -1,6 +1,6 @@
-import { MovieService } from './../movie.service';
-import { Movie } from './../models/movie';
-import { Component, OnInit, Input, ViewChild } from '@angular/core';
+import { MovieService } from './../shared/movie.service';
+import { Movie } from './../shared/movie';
+import { Component, OnInit, Input } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({

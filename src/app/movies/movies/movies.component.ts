@@ -2,12 +2,12 @@ import { Location } from '@angular/common';
 import { Router } from '@angular/router';
 import { MatDialog } from '@angular/material/dialog';
 import { ModalWindowComponent } from './../modal-window/modal-window.component';
-import { MovieService } from './../movie.service';
+import { MovieService } from './../shared/movie.service';
 import { switchMap } from 'rxjs/operators';
-import { SharedService } from './../shared.service';
-import { Movie } from './../models/movie';
+import { SharedService } from './../shared/shared.service';
+import { Movie } from './../shared/movie';
 import { Component, OnInit } from '@angular/core';
-import { Subject, Observable, BehaviorSubject } from 'rxjs';
+import { Observable, BehaviorSubject } from 'rxjs';
 
 @Component({
   selector: 'app-movies',

@@ -1,9 +1,7 @@
-import { SharedService } from './../shared.service';
+import { SharedService } from './../shared/shared.service';
 import { Component, OnInit } from '@angular/core';
-import { FormControl } from '@angular/forms';
-import { Observable, Subject } from 'rxjs';
-import { map, startWith } from 'rxjs/operators';
-import { debounceTime, distinctUntilChanged, switchMap } from 'rxjs/operators';
+import { Subject } from 'rxjs';
+import { debounceTime, distinctUntilChanged } from 'rxjs/operators';
 
 @Component({
   selector: 'app-movie-search',

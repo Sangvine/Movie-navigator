@@ -1,4 +1,4 @@
-import { Movie } from './models/movie';
+import { Movie } from './movie';
 import { Injectable } from '@angular/core';
 import { InMemoryDbService } from 'angular-in-memory-web-api';
 
